@@ -29,7 +29,6 @@ def initial_option():
         sheet_id = sheet_handling.new_sheet(service, inp_values)
         sheet_url = csv_upload.push_csv_to_gsheet(service, spreadsheet_id, sheet_id)
         print(sheet_url)
-        webbrowser.open(f'{sheet_url}', new=2)
 
 
 if __name__ == '__main__':
