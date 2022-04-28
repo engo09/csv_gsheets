@@ -1,4 +1,5 @@
 import sys
+import webbrowser
 from auth import g_auth
 from functions import import_choice, spreadsheet_handling, sheet_handling, csv_upload
 
@@ -20,6 +21,7 @@ def initial_option():
         spreadsheet_id = spreadsheet_handling.new_spreadsheet(service, inp_values)
         sheet_url = csv_upload.push_csv_to_gsheet(service, spreadsheet_id, sheet_id)
         print(sheet_url)
+        webbrowser.open(f'{sheet_url}', new=2)
     elif import_type == "sheet":
         print('')
         inp_values = import_choice.get_args_sheet()
@@ -27,6 +29,7 @@ def initial_option():
         sheet_id = sheet_handling.new_sheet(service, inp_values)
         sheet_url = csv_upload.push_csv_to_gsheet(service, spreadsheet_id, sheet_id)
         print(sheet_url)
+        webbrowser.open(f'{sheet_url}', new=2)
 
 
 if __name__ == '__main__':
